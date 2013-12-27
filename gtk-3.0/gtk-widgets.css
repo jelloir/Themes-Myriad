@@ -131,93 +131,74 @@ GtkClutterOffscreen {
 /********
  * menu *
  ********/
-GtkTreeMenu.menu,
-GtkMenuToolButton.menu,
-GtkComboBox .menu {
-    background-color: @theme_bg_color;
-}
-
-.primary-toolbar .menu,
-.primary-toolbar .button .menu,
-.toolbar .menu,
-.toolbar .primary-toolbar .menu,
-.header-bar .menu,
-.header-bar .primary-toolbar .menu,
 
 .menu {
-    padding: 2px;
-    border-width: 1px;
-    border-color: @theme_base_color;
-    border-style: solid;
     background-image: -gtk-gradient(linear, left top, left bottom,
     from (@gradient_from_color),
     to (@gradient_to_color));
+    border-color: @theme_base_color;
+    border-style: solid;
+    border-width: 1px;
     color: @theme_fg_color;
-}
-
-.menu.button:hover,
-.menu.button:active,
-.menu.button:active *:insensitive,
-.menu.button:insensitive,
-.menu.button {
-    border-style: none;
-    background-color: @insensitive_color;
-    background-image: none;
+    padding: 3px 2px;
 }
 
 
 /***********
  * menubar *
  ***********/
+
 .menubar {
     /*Need to complete mnemonic key indicators*/
     -GtkWidget-window-dragging: true;
-    padding: 4px;
+
     background-color: @theme_base_color;
     color: @theme_fg_color;
+    padding: 2px;
 }
+
+
 
 /***************
  * menubaritem *
  ***************/
+
 .menubar.menuitem,
 .menubar .menuitem {
-    padding: 3px 5px;
-    border-width: 1px 1px 0 1px;
-    border-style: solid;
-    border-color: transparent;
-    background-color: transparent;
     color: @theme_fg_color;
+    padding: 2px 7px;
 }
 
 .menubar.menuitem:hover,
 .menubar .menuitem:hover {
-    border-width: 1px;
-    border-color: @insensitive_color;
     background-color: @theme_selected_bg_color;
+    border-color: @insensitive_color;
+    border-style: solid;
+    border-width: 1px;
     color: @theme_selected_fg_color;
 }
 
 .menubar .menuitem *:hover {
+    background-color: @theme_selected_bg_color;
     color: @theme_selected_fg_color;
 }
 
 /************
  * menuitem *
  ************/
-GtkTreeMenu .menuitem {
-    padding: 0;
-    border-width: 0;
-}
 
 .menuitem,
 .menu .menuitem {
 
-    -GtkMenuItem-arrow-scaling: 0.5;
+    -GtkMenuItem-arrow-scaling: 0.8;
 }
 
 .menu .menuitem:active,
 .menu .menuitem:hover {
+    background-color: @theme_selected_bg_color;
+    border-color: @insensitive_color;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .menu .menuitem:active,
@@ -299,6 +280,11 @@ GtkModelMenuItem GtkBox GtkImage {
     color: @gradient_from_color;
 }
 
+.toolbar {
+    background-image: -gtk-gradient(linear, left top, left bottom,
+    from (@gradient_from_color),
+    to (@theme_bg_color));
+}
 
 
 .button {
