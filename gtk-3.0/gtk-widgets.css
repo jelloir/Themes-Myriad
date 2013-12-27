@@ -1,0 +1,218 @@
+/* NOTES to contributors:
+ * use 4 spaces indents, and keep code ALIGNED and ORDERED */
+
+/* default */
+* {
+    engine: none;
+
+    background-clip: padding-box;
+
+    -GtkArrow-arrow-scaling: 0.6;
+    -GtkButton-child-displacement-x: 0;
+    -GtkButton-child-displacement-y: 1;
+    -GtkButton-default-border: 0;
+    -GtkButton-image-spacing: 0;
+    -GtkButton-inner-border: 1;
+    -GtkButton-interior-focus: true;
+    -GtkCheckButton-indicator-size: 16;
+    -GtkCheckMenuItem-indicator-size: 12;
+    -GtkExpander-expander-size: 16;
+    -GtkHTML-link-color: @link_color;
+    -GtkIMHtml-hyperlink-color: @link_color;
+    -GtkMenu-horizontal-padding: 0;
+    -GtkMenu-vertical-padding: 0;
+    -GtkNotebook-initial-gap: 0;
+    -GtkPaned-handle-size: 3;
+    -GtkProgressBar-min-horizontal-bar-height: 21;
+    -GtkProgressBar-min-vertical-bar-width: 21;
+    -GtkRange-slider-width: 11;
+    -GtkRange-stepper-size: 11;
+    -GtkRange-stepper-spacing: 0;
+    -GtkRange-trough-border: 0;
+    -GtkRange-trough-under-steppers: 1;
+    -GtkScrollbar-has-backward-stepper: true;
+    -GtkScrollbar-has-forward-stepper: true;
+    -GtkScrollbar-min-slider-length: 35;
+    -GtkScrolledWindow-scrollbar-spacing: 0;
+    -GtkScrolledWindow-scrollbars-within-bevel: 1;
+    -GtkStatusbar-shadow-type: none;
+    -GtkTextView-error-underline-color: @error_color;
+    -GtkToolButton-icon-spacing: 6;
+    -GtkToolItemGroup-expander-size: 11;
+    -GtkTreeView-expander-size: 11;
+    -GtkWidget-focus-line-width: 1;
+    -GtkWidget-focus-padding: 0;
+    -GtkWidget-link-color: @link_color;
+    -GtkWidget-visited-link-color: @link_color;
+    -GtkWindow-resize-grip-height: 0;
+    -GtkWindow-resize-grip-width: 0;
+    -WnckTasklist-fade-overlay-rect: 0;
+
+    /*outline-color: alpha(@theme_selected_bg_color, 0.5);*/
+    outline-style: solid;
+    outline-offset: 0;
+}
+
+/***************
+ * base states *
+ ***************/
+.background {
+    background-color: @theme_bg_color;
+    color: @theme_fg_color;
+}
+
+.background.client-decorated {
+    background-color: transparent;
+}
+
+.background.window-content {
+    background-color: @theme_bg_color;
+}
+
+GtkClutterOffscreen {
+    background-color: @theme_bg_color;
+    color: @theme_fg_color;
+}
+
+*:selected,
+*:selected:focus {
+    background-color: @theme_text_color;
+    color: @theme_selected_fg_color;
+}
+
+*:active {
+    background-color: @theme_bg_color;
+}
+
+*:insensitive,
+*:insensitive:insensitive {
+    color: @theme_text_color;
+}
+
+*:hover {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+.gtkstyle-fallback {
+    background-color: @theme_bg_color;
+    color: @theme_fg_color;
+}
+
+.gtkstyle-fallback:prelight {
+    background-color: shade(@theme_bg_color, 1.1);
+    color: @theme_fg_color;
+}
+
+.gtkstyle-fallback:active {
+    background-color: shade(@theme_bg_color, 0.9);
+    color: @theme_fg_color;
+}
+
+.gtkstyle-fallback:insensitive {
+    background-color: shade(shade(@theme_bg_color, 0.95), 1.05);
+    color: mix(@theme_fg_color, @theme_bg_color, 0.5);
+}
+
+.gtkstyle-fallback:selected {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+
+.menu {
+    padding: 2;
+    border-width: 1px;
+    border-color: @theme_base_color;
+    border-style: solid;
+    background-image: -gtk-gradient(linear, left top, left bottom,
+    from (@gradient_from_color),
+    to (@gradient_to_color));
+    color: @menu_fg_color;
+}
+
+/***********
+ * menubar *
+ ***********/
+.menubar {
+    /*Need to complete mnemonic key indicators*/
+    -GtkWidget-window-dragging: true;
+    padding: 4px;
+    background-color: @menubar_bg_color;
+    color: @menubar_fg_color;
+}
+
+/***************
+ * menubaritem *
+ ***************/
+.menubar.menuitem,
+.menubar .menuitem {
+    padding: 3px 5px;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: transparent;
+    background-color: transparent;
+    color: @menubar_fg_color;
+}
+
+.menubar.menuitem:hover,
+.menubar .menuitem:hover {
+    border-width: 1px;
+    border-color: #2e3a45;
+    background-color: black;
+    color: @theme_selected_fg_color;
+}
+
+.menubar .menuitem *:hover {
+    color: @theme_selected_fg_color;
+}
+
+.menuitem.separator {
+    -GtkMenuItem-horizontal-padding: 5;
+    -GtkWidget-separator-height: 1;
+
+    border-style: none;
+    color: @gradient_from_color;
+}
+
+
+
+.button {
+    background-image: -gtk-gradient(linear, left top, left bottom,
+    from (@gradient_from_color),
+    to (@gradient_to_color));
+
+    padding: 2px;
+    border-width: 1px;
+    border-color: #090e14;
+    border-style: solid;
+    border-bottom-color: #1c242e;
+    color: @theme_fg_color;
+    }
+
+    .button:active {
+    background-image: -gtk-gradient(linear, left top, left bottom,
+    from (shade(shade(@theme_bg_color, 0.85), 1.05)),
+    to (shade(shade(@theme_bg_color, 0.85), 0.97)));
+
+    border-color: shade(shade(@theme_bg_color, 0.85), 0.8);
+    }
+
+    .button:hover,
+    .button:active:hover {
+    background-image: -gtk-gradient(linear, left top, left bottom,
+    from (shade(shade(@theme_bg_color, 1.07), 1.05)),
+    to (shade(shade(@theme_bg_color, 1.07), 0.97)));
+
+    border-color: shade(shade(@theme_bg_color, 1.07), 0.8);
+    }
+
+    .button:insensitive {
+    background-image: -gtk-gradient(linear, left top, left bottom,
+    from (shade(shade(@theme_bg_color, 0.95), 1.05)),
+    to (shade(shade(@theme_bg_color, 0.95), 0.97)));
+
+    border-color: shade(shade(@theme_bg_color, 0.95), 0.8);
+
+    color: mix(@theme_fg_color, @theme_bg_color, 0.4);
+}
