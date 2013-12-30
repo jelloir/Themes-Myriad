@@ -66,7 +66,7 @@
 @define-color wm_border_unfocused #3f3f3f;
 
 @import url("gtk-widgets.css");
-@import url("gtk-widgets-assets.css");
+/*@import url("gtk-widgets-assets.css");
 @import url("apps/gnome-applications.css");
 @import url("apps/unity.css");
-@import url("apps/xfce.css");
+@import url("apps/xfce.css");*/
